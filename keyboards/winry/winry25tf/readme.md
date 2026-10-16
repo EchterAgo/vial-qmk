@@ -51,4 +51,23 @@ The original community repository ships VIA/Vial binaries for the `num_kp` and
 `num_kp_a1` arrangements; in the vial-qmk fork use the `via` and `vial`
 keymaps, which keep the community Vial keyboard UID so existing layouts apply.
 
+## Rainbow wave
+
+`WINRY_WAVE` (shown as *Winry Rainbow Wave* / `WAVE` in Vial, custom keycode in
+VIA) cycles; the module is compile-gated behind `WINRY_WAVE_ENABLE` in the
+keymap's `config.h` (set in the `vial`/`via` keymaps, absent elsewhere) the special effect: off -> top-to-bottom -> bottom-to-top ->
+left-to-right -> right-to-left -> off.
+
+The *Wave Offset +* / *Wave Offset -* keys (`WINRY_WAVE_UP` /
+`WINRY_WAVE_DOWN`) shift each crossed row/column by one hue step, giving a
+diagonal skew (range 0-64, default 0; also settable at compile time with
+`#define WINRY_WAVE_OFFSET n`); *Wave Offset 0* (`WINRY_WAVE_ZERO`) resets
+the skew. Wave speed is rgblight's standard speed
+knob: the Vial app speed slider or `UG_SPDU`/`UG_SPDD`. Unlike rgblight's built-in swirl (which
+follows the spiral LED chain), the wave ramps hue by physical grid position, so
+it reads as a straight directional rainbow. While active it takes over the
+strip; toggling rgblight back on (UG_TOGG) returns control to the normal
+effects. Brightness/saturation/value settings apply. The Knight and Christmas
+animations are disabled to make room for it on the 32K-flash part.
+
 See the [build environment setup](https://docs.qmk.fm/#/getting_started_build_tools) and the [make instructions](https://docs.qmk.fm/#/getting_started_make_guide) for more information. Brand new to QMK? Start our [Complete Newbs Guide](https://docs.qmk.fm/#/newbs).

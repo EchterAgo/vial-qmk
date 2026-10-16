@@ -21,8 +21,8 @@
         "animations": {
             "alternating": false,
             "breathing": true,
-            "christmas": true,
-            "knight": true,
+            "christmas": false,
+            "knight": false,
             "rainbow_mood": true,
             "rainbow_swirl": true,
             "rgb_test": false,
